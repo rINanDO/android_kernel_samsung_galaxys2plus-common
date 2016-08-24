@@ -676,7 +676,7 @@ static int bcmpmu_chrgr_get_property(struct power_supply *ps,
 		req.flags = PMU_ADC_RAW_AND_UNIT;
 		if (bcmpmu->adc_req) {
 			bcmpmu->adc_req(bcmpmu, &req);
-			propval->intval = req.cnv;
+			propval->intval = req.cnv*1000;
 		} else
 			ret = -ENODATA;
 		break;
