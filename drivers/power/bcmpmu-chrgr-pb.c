@@ -629,7 +629,7 @@ static int bcmpmu_chrgr_get_property(struct power_supply *ps,
 	case POWER_SUPPLY_PROP_TYPE:
 		if ((pchrgr->chrgrtype == PMU_CHRGR_TYPE_NONE) ||
 			(pchrgr->chrgrtype >= PMU_CHRGR_TYPE_MAX))
-			propval->intval = POWER_SUPPLY_TYPE_BATTERY;
+			propval->intval = POWER_SUPPLY_TYPE_UNKNOWN;
 		else if (pchrgr->chrgrtype == PMU_CHRGR_TYPE_SDP)
 			propval->intval = POWER_SUPPLY_TYPE_USB;
 		else if (pchrgr->chrgrtype == PMU_CHRGR_TYPE_CDP)
@@ -637,7 +637,7 @@ static int bcmpmu_chrgr_get_property(struct power_supply *ps,
 		else if (pchrgr->chrgrtype == PMU_CHRGR_TYPE_DCP)
 			propval->intval = POWER_SUPPLY_TYPE_USB_DCP;
 		else
-			propval->intval = POWER_SUPPLY_TYPE_BATTERY;
+			propval->intval = POWER_SUPPLY_TYPE_UNKNOWN;
 
 		break;
 	case POWER_SUPPLY_PROP_TEMP:
